@@ -1,0 +1,50 @@
+#visualizer {
+  width: 100%;
+  height: 100%;
+}
+#visualizer button {
+  all: unset;
+  display: revert;
+}
+#visualizer #root {
+  width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#visualizer #root audio {
+  display: none;
+}
+#visualizer #root .background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#visualizer #root #visualizer-canvas {
+  position: absolute;
+  inset: 0;
+}
+#visualizer #root #toggle {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+#visualizer #root #toggle svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#visualizer #root #toggle.play svg:first-child {
+  opacity: 0;
+}
+#visualizer #root #toggle:not(.play) svg:last-child {
+  opacity: 0;
+}/*# sourceMappingURL=visualizer.css.map */

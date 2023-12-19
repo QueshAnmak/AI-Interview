@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #04102b;
+}
+
+#gradient-canvas {
+  /* --gradient-color-1: #041e3c;
+          --gradient-color-2: #025877;
+          --gradient-color-3: #013854;
+          --gradient-color-4: #001f31; */
+  --gradient-color-1: #04102b;
+  --gradient-color-2: #0c245d;
+  --gradient-color-3: #08051d;
+  --gradient-color-4: #0a255f;
+  filter: brightness(44%) saturate(160%) blur(16px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -5000;
+}/*# sourceMappingURL=gradient.css.map */
