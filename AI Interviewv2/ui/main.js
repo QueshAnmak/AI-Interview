@@ -51,8 +51,8 @@ async function main ()
 {
     await restart();
 
-    let ai_message = "Hello! Welcome to Hash I Q. Are you ready to begin?";
-    log( "AI", "Hello! Welcome to HashIQ. Are you ready to begin?" );
+    let ai_message = "Hello! Welcome to Hash I Q. What would you like to Interview on?";
+    log( "AI", "Hello! Welcome to HashIQ. What would you like to interview on?" );
     await speak( ai_message );
 
     // ai_message = await think("i'm ready");

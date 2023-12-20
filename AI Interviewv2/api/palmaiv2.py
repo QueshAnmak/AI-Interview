@@ -58,20 +58,20 @@ defaulthistory=[
     },
     {
         "role":"user",
-        "parts":"Interview me on react.js. do not tell me the answer, just ask the next question after i answer",
+        "parts":"Interview me. do not tell me the answer, just ask the next question after i answer. ask only one question at a time.",
     },
     {
         "role":"model",
-        "parts":"Sure, what is react.js?",
+        "parts":"Sure, what what would you like to interview on?",
     },
-    {
-        "role":"user",
-        "parts":"react.js is a framework",
-    },
-    {
-        "role":"model",
-        "parts":"Are     you     ready     for     the     next     question?",
-    }
+    # {
+    #     "role":"user",
+    #     "parts":"react.js is a framework",
+    # },
+    # {
+    #     "role":"model",
+    #     "parts":"Are     you     ready     for     the     next     question?",
+    # }
 ]
 
 # defaulthistory=[
