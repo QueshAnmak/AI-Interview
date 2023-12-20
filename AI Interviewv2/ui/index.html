@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+
+  <script src="gradient.js"></script>
+
+  <link rel="stylesheet" href="gradient.css">
+  <link rel="stylesheet" href="visualizer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <title>HashIQ</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <canvas id="gradient-canvas" style="width:100%;height:100vh"></canvas>
+  <script>
+    var gradient = new Gradient();
+    gradient.initGradient( '#gradient-canvas' );
+  </script>
+
+  <div id="visualizer">
+    <div id="root">
+      <canvas id="visualizer-canvas" style="width:100%;height:100vh" />
+    </div>
+  </div>
+
+  <div style ="position: absolute; top:100px;z-index: 1000000000; width: 100%; height: 20vh; display: flex; justify-content: center; align-items: center;">
+    <textarea autofocus class = "output" disabled style ="width: 100%; outline: none; border: none; font-weight: bold; border-radius: 10px; font-size: 30px; text-align: center; background-color: transparent; color: white; font-family: 'Courier New', Courier, monospace; overflow-wrap: break-word;" type = "text"></textarea>
+  </div>
+
+  <div style ="position: absolute; bottom:100px;z-index: 1000000000; width: 100%; height: 20vh; display: flex; justify-content: center; align-items: center;">
+    <input autofocus class ="hash"  style ="width: 100%; height: 20vh; outline: none; border: none; font-weight: bold; border-radius: 10px; font-size: 60px; text-align: center; background-color: transparent; color: white; font-family: 'Courier New', Courier, monospace;" type = "text">
+  </div>
+
+  <script src='https://assets.codepen.io/16327/gsap-latest-beta.min.js'></script>
+  <script type="module" src="main.js"></script>
+
+</body>
+
+</html>
