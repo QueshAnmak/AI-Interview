@@ -23,7 +23,7 @@ let messages = [
 
 
 
-export default async function think ( user_message=null )
+export async function think ( user_message=null )
 {
     console.log( "thinking..." );
     console.log( "" );
@@ -37,17 +37,36 @@ export default async function think ( user_message=null )
         body: JSON.stringify( {
             // "context": context,
             // "examples": examples,
-            "messages": messages
+            // "messages": messages
+            "user_message": user_message
         } )
     } );
     
-    if ( user_message !== null )
-    {
-        messages.push( user_message );
-    }
+    // if ( user_message !== null )
+    // {
+    //     messages.push( user_message );
+    // }
     // update message withr response
-    messages = await response.json();
-    return messages[ messages.length - 1 ];
+    // messages = await response.json();
+    // return messages[ messages.length - 1 ];
+    let resp = await response.json();
+    return resp["ai_message"];
+}
+
+export async function restart ()
+{
+    console.log( "restarting..." );
+    console.log( "" );
+    let response = await fetch( "http://127.0.0.1:5000/restart", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        },
+    } );
+    
+    let resp = await response.json();
+    console.log( resp[ "status" ] );
+    console.log( "" );
 }
 
 // think( "howdy neighbour!" ).then( console.log );
