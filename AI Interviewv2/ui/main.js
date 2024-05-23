@@ -6,30 +6,35 @@ const EXIT_KEYWORDS = [ "stop", "exit", "bye", "quit", "that's enough", "that's 
 
 async function chat (user_message)
 {
-    
-    log( "User", user_message );
+    if (user_message === undefined) {
+        user_message = await listen();
+    }
 
-    return new Promise( async ( resolve ) =>
-    {
-        if ( EXIT_KEYWORDS.filter( ( keyword ) => user_message.toLowerCase().includes( keyword ) ).length > 0 )
-        {
-            let ai_message = await think( "Give me brief summary of how well I performed in this interview?" )
-            log( "AI", ai_message );
-            await speak( ai_message );
-            // log( "AI", "Alright then, Goodbye!" )
-            // await speak( "Alright then, Goodbye!" );
-            resolve();
-        }
-        else
-        {
-            let ai_message = await think( user_message );
-            log( "AI", ai_message );
-            
-            await speak( ai_message );
+  log("User", user_message);
 
-            chat().then( resolve );
-        }
-    } );
+  return new Promise(async (resolve) => {
+    if (
+      EXIT_KEYWORDS.filter((keyword) =>
+        user_message.toLowerCase().includes(keyword)
+      ).length > 0
+    ) {
+      let ai_message = await think(
+        "Give me brief summary of how well I performed in this interview?"
+      );
+      log("AI", ai_message);
+      await speak(ai_message);
+      // log( "AI", "Alright then, Goodbye!" )
+      // await speak( "Alright then, Goodbye!" );
+      resolve();
+    } else {
+      let ai_message = await think(user_message);
+      log("AI", ai_message);
+
+      await speak(ai_message);
+
+      chat().then(resolve);
+    }
+  });
 }
 
 function log ( speaker, message )
@@ -70,7 +75,7 @@ async function main ()
         }
     })
 
-    // await chat();
+    await chat();
 }
 
 setTimeout(main, 1000);
