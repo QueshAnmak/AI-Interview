@@ -10,7 +10,8 @@ async function chat (user_message)
         user_message = await listen();
     }
 
-  log("User", user_message);
+    log("User", user_message);
+    
 
   return new Promise(async (resolve) => {
     if (
