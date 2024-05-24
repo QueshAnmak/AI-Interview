@@ -138,6 +138,8 @@ def restart_with_resume(resume_text):
     copy.append({"role":"model", "parts":"Please share your resume."})
     copy.append({"role":"user", "parts":resume_text})
     copy.append({"role":"model", "parts":"I will now interview you based on your resume."})
+    copy.append({"role":"user", "parts":"Ask very very detailed technical questions as you can based on this resume. I will answer them."})
+
     convo = model.start_chat(history=copy)
 
 def restart():

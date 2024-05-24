@@ -118,15 +118,15 @@ const startJourney = async () => {
 
   log(
     "AI",
-    "Would you like the interview tailored to your resume? Please respond with 'yes' or 'no'."
+    "Hello, Welcome to Hash IQ. Would you like the interview tailored to your resume? Please respond with 'yes' or 'no'."
   );
   await speak(
-    "Would you like the interview tailored to your resume? Please respond with 'yes' or 'no'."
+    "Hello, Welcome to Hash IQ. Would you like the interview tailored to your resume? Please respond with 'yes' or 'no'."
   );
 };
 
 async function main(
-  msg = "Hello! Welcome to Hash I Q. What would you like to Interview on?"
+  msg = "Hey. What would you like to Interview on?"
 ) {
   let ai_message = msg;
   log("AI", msg);

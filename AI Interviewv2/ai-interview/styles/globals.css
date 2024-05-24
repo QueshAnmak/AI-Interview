@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    background: #030303;
+    color: #f0f0f0;
+}
+
+body {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Proxima Nova Lt";
+}
+html {
+    background: #030303;
+    color: #f0f0f0;
+}
+
+body {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Proxima Nova Lt";
+}
+
+.loader-container {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 15%;
+}
+
+@keyframes scaleup {
+    0% {
+        transform: translateY(-10%) scale(0);
+    }
+
+    20% {
+        transform: translateY(-10%) scale(1);
+    }
+
+    60% {
+        filter: blur(0);
+    }
+
+    100% {
+        filter: blur(25rem);
+    }
+}
+
+.loader-container .title {
+    font-size: 2em;
+    text-align: center;
+    padding: 0.5em;
+    padding-bottom: 1em;
+    font-weight: bold;
+    animation: float 1s linear infinite alternate;
+}
+
+@keyframes float {
+    0% {
+        text-shadow: #f0f0f0 0 0 3px;
+    }
+
+    100% {
+        text-shadow: #f0f0f0 0 0 4px;
+    }
+}
+
+.loader-container .loader {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+.loader-container .loader .checkpoint {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    box-sizing: border-box;
+    top: 0%;
+    width: 15%;
+    left: 42.5%;
+    height: 100%;
+    animation: closer 0.8s cubic-bezier(0.41, 0.01, 0.66, 0.03) infinite;
+}
+
+.loader-container .loader .checkpoint .marker {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 2px 2px #f0f0f0;
+    animation: bigger 0.8s cubic-bezier(0.41, 0.01, 0.66, 0.03) infinite;
+}
+
+.loader-container .loader .c0 {
+    animation: none;
+}
+
+.loader-container .loader .c0 .marker {
+    animation: none;
+}
+
+.loader-container .loader .c1 {
+    animation-delay: 0s;
+}
+
+.loader-container .loader .c1 .marker {
+    animation-delay: 0s;
+}
+
+.loader-container .loader .c2 {
+    animation-delay: 0.2666666667s;
+}
+
+.loader-container .loader .c2 .marker {
+    animation-delay: 0.2666666667s;
+}
+
+.loader-container .loader .c3 {
+    animation-delay: 0.5333333333s;
+}
+
+.loader-container .loader .c3 .marker {
+    animation-delay: 0.5333333333s;
+}
+
+@keyframes bigger {
+    0% {
+        width: 8px;
+        height: 8px;
+    }
+
+    100% {
+        width: 128px;
+        height: 128px;
+    }
+}
+
+@keyframes closer {
+    100% {
+        top: 100%;
+        left: -100%;
+        width: 300%;
+        height: 0%;
+    }
+}
+
+.cards {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 50px;
+}
