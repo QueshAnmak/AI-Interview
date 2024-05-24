@@ -27,6 +27,11 @@ def think():
     print("response", response)
     return response
 
+@app.route("/pdf-upload", methods=["POST"])
+@cross_origin()
+def pdf_upload():
+    response = palmai.pdf_upload(request.files["file"], request.form["document_type"])
+    return response
 
 @app.route("/restart", methods=["GET"])
 @cross_origin()

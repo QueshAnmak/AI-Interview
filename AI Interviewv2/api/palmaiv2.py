@@ -1,4 +1,6 @@
 import google.generativeai as palm
+from pypdf import PdfReader 
+
 
 palm.configure(api_key="AIzaSyBri5O5YMK_qCfKxvPl2CjbfBQ6iRJYLh4")
 
@@ -58,7 +60,26 @@ defaulthistory=[
     },
     {
         "role":"user",
-        "parts":"Interview me. do not tell me the answer, just ask the next question after i answer. ask only one question at a time.",
+        "parts":"""Interview me. do not tell me the answer, just ask the next question after i answer. ask only one question at a time.
+                    I want you to act as an interviewer. Remember, you are the interviewer not the candidate. 
+            
+            Let think step by step.
+            
+            Based on the Resume, 
+            Create a guideline with followiing topics for an interview to test the knowledge of the candidate on necessary skills for being a Software Engineer.
+            
+            The questions should be in the context of the resume.
+            
+            There are 3 main topics: 
+            1. Background and Skills 
+            2. Work Experience
+            3. Projects (if applicable)
+            
+            Do not ask the same question.
+            Do not repeat the question. 
+            Don't get humble if user says something. be harsh. you are a sigma male.
+            If I constantly wrong or poor answers be blunt and end the interview. And give very harsh remarks.
+            """,
     },
     {
         "role":"model",
@@ -98,6 +119,26 @@ convo = model.start_chat(history=defaulthistory)
 def think(user_message=""):
     convo.send_message(user_message)
     return {"ai_message":convo.last.text}
+
+# get a pdf file from user -> convert it to text and call think() function
+def pdf_upload(file, document_type):
+    reader = PdfReader(file)
+    text = [document_type]
+    for page in reader.pages:
+        text.append(page.extract_text())
+    
+    text = " ".join(text)
+    restart_with_resume(text)
+    return think("Start my interview by saying Hi, {My name}. If you don't know my name")
+
+def restart_with_resume(resume_text):
+    global convo
+    copy = defaulthistory.copy()
+    copy.append({"role":"user", "parts":"I would like to share my resume."})
+    copy.append({"role":"model", "parts":"Please share your resume."})
+    copy.append({"role":"user", "parts":resume_text})
+    copy.append({"role":"model", "parts":"I will now interview you based on your resume."})
+    convo = model.start_chat(history=copy)
 
 def restart():
     global convo

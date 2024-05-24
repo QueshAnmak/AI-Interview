@@ -29,13 +29,15 @@
     </div>
   </div>
 
-  <div style ="position: absolute; top:100px;z-index: 1000000000; width: 100%; height: 20vh; display: flex; justify-content: center; align-items: center;">
+  <div id="outputfield" style="position: absolute; top:100px;z-index: 1000000000; width: 100%; height: 20vh; display: flex; justify-content: center; align-items: center;">
     <textarea cols="200" class = "output" disabled style ="width: 100%; height: 100%; outline: none; border: none; font-weight: bold; border-radius: 10px; font-size: 30px; text-align: center; background-color: transparent; color: white; font-family: 'Courier New', Courier, monospace; overflow-wrap: break-word;" type = "text"></textarea>
   </div>
 
-  <div style ="position: absolute; bottom:100px;z-index: 1000000000; width: 100%; height: 20vh; display: flex; justify-content: center; align-items: center;">
+  <div id = "inputfield" style ="position: absolute; bottom:100px;z-index: 1000000000; width: 100%; height: 20vh; display: flex; justify-content: center; align-items: center;">
     <input autofocus class ="hash"  style ="width: 100%; height: 20vh; outline: none; border: none; font-weight: bold; border-radius: 10px; font-size: 60px; text-align: center; background-color: transparent; color: white; font-family: 'Courier New', Courier, monospace;" type = "text">
   </div>
+
+  <input type="file" id="file" style="visibility: hidden; position: absolute; top: 0; left: 0; width: 0; height: 0;" />
 
   <script src='https://assets.codepen.io/16327/gsap-latest-beta.min.js'></script>
   <script type="module" src="main.js"></script>
